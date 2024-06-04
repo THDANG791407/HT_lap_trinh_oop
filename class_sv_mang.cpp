@@ -65,12 +65,46 @@ int timkiem(SinhVien sv[],int n,string ms)
 	}
 	return -1;
 }
+float timDiemLonNhat(SinhVien sv[],int n)
+{
+	float maxdtb = sv[0].diemtb;
+	int i=0;
+	while(i<n)
+	{
+		if(sv[i].diemtb>maxdtb)
+		{
+			maxdtb = sv[i].diemtb;
+		}
+		i++;
+		
+	}
+	return maxdtb;
+}
+void lietKeNSinhVienLonNhat(SinhVien sv[], int n)
+{
+	float max = timDiemLonNhat(sv,n);
+	int i=0;
+	while(i<n)
+	{
+		if(sv[i].diemtb == max)
+		{
+			sv[i].hienthi();
+		}
+		i++;
+	}
+}
 int main()
 {
-	SinhVien sv[2];
-	nhapmang(sv,2);
-	xuatmang(sv,2);
-	int kq = timkiem(sv,2,"002");
-	cout<<kq;
+	int n;
+	cout<<"so luong sv can nhap: ";
+	fflush(stdin);
+	cin>>n;
+	SinhVien sv[n];
+	nhapmang(sv,n);
+	xuatmang(sv,n);
+	int kq = timkiem(sv,n,"002");
+	cout<<kq<<endl;
+	cout<<"danh sach sv co diemtb lon nhat:"<<endl;
+	lietKeNSinhVienLonNhat(sv,n);
 	return 0;
 }
