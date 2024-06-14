@@ -113,7 +113,10 @@ int main()
 	cout<<"-----------------"<<endl;
 	
 	int kq = TimKiem(sv,n,"003");
-	cout<<kq<<endl;
+	if(kq==-1)
+		cout<<"khong tim thay<<endl;
+	else
+		cout<<kq<<endl;
 	
 	cout<<"danh sach sv co diem tb lon nhat"<<endl;
 	DssvDiemtbMax(sv,n);
