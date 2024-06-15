@@ -12,6 +12,9 @@ class PhanSo
 		friend PhanSo operator-(PhanSo a, PhanSo b);
 		friend PhanSo operator*(PhanSo a, PhanSo b);
 		friend PhanSo operator/(PhanSo a, PhanSo b);
+		friend int operator<(PhanSo a, PhanSo b);
+		friend int operator>(PhanSo a, PhanSo b);
+		friend int operator==(PhanSo a, PhanSo b);
 
 };
 istream &operator>>(istream &in, PhanSo &ps)
@@ -80,6 +83,37 @@ PhanSo RutGonPs(PhanSo a)
 	a.mau = a.mau/uc;
 	return a;
 }
+int operator<(PhanSo a, PhanSo b)
+{
+	a.tu= a.tu*b.mau;
+	b.tu= b.tu*a.mau;
+	if(a.tu<b.tu)
+	{
+		return 1;
+	}
+	return 0;
+}
+int operator>(PhanSo a, PhanSo b)
+{
+	a.tu= a.tu*b.mau;
+	b.tu= b.tu*a.mau;
+	if(a.tu>b.tu)
+	{
+		return 1;
+	}
+	return 0;
+	
+}
+int operator==(PhanSo a, PhanSo b)
+{
+	a.tu= a.tu*b.mau;
+	b.tu= b.tu*a.mau;
+	if(a.tu==b.tu)
+	{
+		return 1;
+	}
+	return 0;
+}
 int main()
 {
 	PhanSo a , b, kq;
@@ -104,6 +138,20 @@ int main()
 	cout<<"TEST UCLN: "<<UCLN(8,4)<<endl;
 	kq=RutGonPs(a);
 	cout<<"phan so toi gian "<<a<<": "<<kq<<endl;
+
+	cout<<"so sanh hai phan so:"<<endl;
+	if(a<b)
+	{
+		cout<<a<<" be hon "<<b;
+	}
+	else if(a>b)
+	{
+		cout<<a<<" lon hon "<<b;
+	}
+	else
+	{
+		cout<<a<<" bang "<<b;
+	}
 	
 	return 0;
 }
