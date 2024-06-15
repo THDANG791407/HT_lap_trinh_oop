@@ -9,6 +9,8 @@ class PhanSo
 		friend ostream &operator<<(ostream &out, PhanSo &ps);
 		friend PhanSo operator+(PhanSo a, PhanSo b);
 		friend PhanSo operator-(PhanSo a, PhanSo b);
+		friend PhanSo operator*(PhanSo a, PhanSo b);
+		friend PhanSo operator/(PhanSo a, PhanSo b);
 
 };
 istream &operator>>(istream &in, PhanSo &ps)
@@ -38,6 +40,20 @@ PhanSo operator-(PhanSo a, PhanSo b)
 	t.tu=a.tu*b.mau - b.tu*a.mau;
 	return t;
 }
+PhanSo operator*(PhanSo a, PhanSo b)
+{
+	PhanSo t;
+	t.tu = a.tu*b.tu;
+	t.mau = a.mau*b.mau;
+	return t;
+}
+PhanSo operator/(PhanSo a, PhanSo b)
+{
+	PhanSo t;
+	t.tu = a.tu*b.mau;
+	t.mau =a.mau*b.tu;
+	return t;
+}
 int main()
 {
 	PhanSo a , b, kq;
@@ -53,6 +69,11 @@ int main()
 	cout<<"a+b= "<<kq<<endl;
 	kq=a-b;
 	cout<<"a-b= "<<kq<<endl;
+
+	kq=a*b;
+	cout<<"a * b= "<<kq<<endl;
+	kq=a/b;
+	cout<<"a/b= "<<kq<<endl;
 	
 	return 0;
 }
