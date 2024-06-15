@@ -73,6 +73,13 @@ int UCLN(int a, int b)
 	}
 	return a;
 }
+PhanSo RutGonPs(PhanSo a)
+{
+	int uc = UCLN(a.tu, a.mau);
+	a.tu = a.tu/uc;
+	a.mau = a.mau/uc;
+	return a;
+}
 int main()
 {
 	PhanSo a , b, kq;
@@ -95,6 +102,8 @@ int main()
 	cout<<"a/b= "<<kq<<endl;
 
 	cout<<"TEST UCLN: "<<UCLN(8,4)<<endl;
+	kq=RutGonPs(a);
+	cout<<"phan so toi gian "<<a<<": "<<kq<<endl;
 	
 	return 0;
 }
