@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <math.h>
 using namespace std;
 class PhanSo
 {
@@ -54,6 +55,24 @@ PhanSo operator/(PhanSo a, PhanSo b)
 	t.mau =a.mau*b.tu;
 	return t;
 }
+int UCLN(int a, int b)
+{
+	a = abs(a);
+	b = abs(b);
+	while(a != b)
+	{
+		if(a>b)
+		{
+			a = a-b;
+		}
+		else
+		{
+			b = b-a;
+		}
+		
+	}
+	return a;
+}
 int main()
 {
 	PhanSo a , b, kq;
@@ -74,6 +93,8 @@ int main()
 	cout<<"a * b= "<<kq<<endl;
 	kq=a/b;
 	cout<<"a/b= "<<kq<<endl;
+
+	cout<<"TEST UCLN: "<<UCLN(8,4)<<endl;
 	
 	return 0;
 }
