@@ -15,6 +15,7 @@ class PhanSo
 		friend int operator<(PhanSo a, PhanSo b);
 		friend int operator>(PhanSo a, PhanSo b);
 		friend int operator==(PhanSo a, PhanSo b);
+		friend int SoSanh(PhanSo a, PhanSo b); // cách 2
 
 };
 istream &operator>>(istream &in, PhanSo &ps)
@@ -114,6 +115,25 @@ int operator==(PhanSo a, PhanSo b)
 	}
 	return 0;
 }
+int SoSanh(PhanSo a, PhanSo b)
+{
+	int x,y;
+	x= a.tu*b.mau;
+	y= b.tu*a.mau;
+	if(x<y)
+	{
+		cout<<a<<" be hon "<<b<<endl;
+	}
+	else if(x>y)
+	{
+		cout<<a<<" lon hon "<<b<<endl;
+	}
+	else
+	{
+		cout<<a<<" bang "<<b<<endl;
+	}
+	
+}
 int main()
 {
 	PhanSo a , b, kq;
@@ -152,6 +172,8 @@ int main()
 	{
 		cout<<a<<" bang "<<b;
 	}
+	cout<<"cach 2:"<<endl;
+	kq1 = SoSanh(a,b);
 	
 	return 0;
 }
